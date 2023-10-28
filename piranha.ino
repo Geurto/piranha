@@ -19,9 +19,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(LED, HIGH);
-  delay(1000);
+  delay(250);
   digitalWrite(LED, LOW);
-  delay(1000);
+  delay(250);
+
   int value = analogRead(AOUT_PIN);
   Serial.print("Moisture value: ");
   Serial.println(value);
