@@ -10,6 +10,14 @@
 #define LED 2
 #define AOUT_PIN 15
 
+float calculateMoisture(int value) {
+  int dry = 2800;
+  int wet = 1100;
+  float moisture_percentage = (float)((dry - value) / (dry - wet));
+  moisture_percentage = max(0.0f, min(1.0f, moisture_percentage));
+  return round(moisture_percentage * 20.0) / 20.0;
+}
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
@@ -24,6 +32,5 @@ void loop() {
   delay(250);
 
   int value = analogRead(AOUT_PIN);
-  Serial.print("Moisture value: ");
-  Serial.println(value);
+  Serial.println(calculateMoisture(value));
 }
