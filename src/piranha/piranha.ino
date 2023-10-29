@@ -27,10 +27,12 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(LED, HIGH);
-  delay(250);
+  delay(500);
   digitalWrite(LED, LOW);
-  delay(250);
+  delay(500);
 
   int value = analogRead(AOUT_PIN);
-  Serial.println(calculateMoisture(value));
+  Serial.println(value);
+  //Serial.println(calculateMoisture(value));  // for now, send the value through directly
+
 }
